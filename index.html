@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakistan Online Visa Application – Official Portal</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body{
+  background:#ffffff;
+  color:#6a6a6a;
+  padding:0 28px;
+}
+
+/* لودینگ چند لایه شما - بدون تغییر */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.loading-spinner div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top-color: #1f4fa3; 
+  border-radius: 50%;
+  animation: spinner-anime 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-spinner div:nth-child(1) { animation-delay: -0.45s; width: 80px; height: 80px; }
+.loading-spinner div:nth-child(2) { animation-delay: -0.3s; width: 60px; height: 60px; margin: 10px; }
+.loading-spinner div:nth-child(3) { animation-delay: -0.15s; width: 40px; height: 40px; margin: 20px; }
+
+@keyframes spinner-anime {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* هدر اصلی */
+.header{
+  background:#ffffff;
+  padding:18px 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index: 1001;
+}
+.header::after{
+  content:"";
+  position:absolute;
+  left:-28px;
+  right:-28px;
+  bottom:0;
+  height:1px;
+  background:#e1e1e1;
+}
+.logo img{ height:42px; }
+.menu-btn, .close-btn { font-size:32px; color:#1f4fa3; cursor:pointer; font-weight: 300; }
+
+/* اصلاح بخش منو */
+.menu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1c2536;
+  z-index: 2000;
+  display: none;
+  flex-direction: column;
+}
+
+.menu-header-active {
+  background: #ffffff;
+  padding: 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-items a {
+  padding: 20px 28px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+  border-bottom: 1px solid #2d384a;
+  font-weight: 500;
+}
+
+/* کارت اطلاعات */
+.card{
+  max-width:380px;
+  margin:48px auto;
+  background:#f5f5f5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+}
+.top-line{ width:64px; height:4px; background:#1f4fa3; }
+.content{ padding:36px 26px 36px; text-align:center; }
+.ref-title{ color:#1f4fa3; font-size:19px; font-weight:600; margin-top:10px; }
+.ref-number{ margin-top:8px; font-size:24px; font-weight:700; color:#1f4fa3; }
+.divider{ height:1px; background:#dcdcdc; margin:25px 0; }
+.photo{ width:190px; margin:0 auto 25px; }
+.photo img{ width:100%; border: 1px solid #ccc; padding: 2px; background: #fff; }
+
+.label{ margin-top:22px; font-size:14px; font-weight:bold; color:#919191; text-transform: uppercase; }
+.value{ margin-top:5px; font-size:18px; color:#444444; font-weight: 500; }
+
+.back-btn{ margin-top:40px; }
+.back-btn a{
+  display:inline-block;
+  background:#1f4fa3;
+  color:#ffffff;
+  padding:14px 42px;
+  text-decoration:none;
+  font-size:18px;
+  font-weight: bold;
+}
+
+.footer-copy {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 11px;
+  color: #333;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.page{ display:none; }
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+  <div class="loading-spinner"><div></div><div></div><div></div></div>
+</div>
+
+<div class="page" id="page">
+  
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-header-active">
+      <div class="logo"><img src="logo.jpg" alt="Logo"></div>
+      <div class="close-btn" onclick="toggleMenu()">✕</div>
+    </div>
+    <div class="menu-items">
+      <a href="#">Home</a>
+      <a href="#">Guidelines</a>
+      <a href="#">Downloads</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contact Us</a>
+    </div>
+  </div>
+
+  <div class="header" id="mainHeader">
+    <div class="logo"><img src="logo.jpg.jpeg" alt="Logo"></div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+
+  <div class="card">
+    <div class="top-line"></div>
+    <div class="content">
+      <div class="ref-title">Visa Reference Number –</div>
+      <div class="ref-number">88004451587</div>
+      <div class="divider"></div>
+      <div class="photo"><img src="phot.jpg.jpeg" alt="Applicant"></div>
+      
+      <div class="label">NAME</div>
+      <div class="value">Hashimi Muzhgan</div>
+
+      <div class="label">Passport No</div>
+      <div class="value">P03858964</div>
+
+      <div class="label">Passport Country</div>
+      <div class="value">Afghanistan</div>
+
+      <div class="label">Visa Category</div>
+      <div class="value">Tourist</div>
+
+      <div class="label">Visa Sub Category</div>
+      <div class="value">Tourist Visa (Upto 1 Year)</div>
+
+      <div class="label">Application Type</div>
+      <div class="value">Entry</div>
+
+      <div class="label">Staying Facility</div>
+      <div class="value">Multiple Entry – Upto 1 Year</div>
+
+      <div class="label">Visa Start Date</div>
+      <div class="value">11 Jan 2026</div>
+
+      <div class="label">Visa End Date</div>
+      <div class="value">10 Jul 2026</div>
+
+      <div class="label">Visa Duration</div>
+      <div class="value">90 Day(s) (Per Visit)</div>
+
+      <div class="back-btn">
+        <a href="https://visa.nadra.gov.pk/e-visa/">Back to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copy">
+    COPYRIGHT © 2015 - 2026 MINISTRY OF INTERIOR, <br> 
+    GOVERNMENT OF PAKISTAN – V: 5.5.9
+  </div>
+</div>
+
+<script>
+window.onload = function(){
+  setTimeout(function(){
+    document.getElementById("loader").style.display="none";
+    document.getElementById("page").style.display="block";
+  }, 1500);
+};
+
+function toggleMenu() {
+  var menu = document.getElementById("menuOverlay");
+  var header = document.getElementById("mainHeader");
+  if (menu.style.display === "flex") {
+    menu.style.display = "none";
+    header.style.visibility = "visible";
+  } else {
+    menu.style.display = "flex";
+    header.style.visibility = "hidden";
+  }
+}
+</script>
+
+</body>
+</html>
